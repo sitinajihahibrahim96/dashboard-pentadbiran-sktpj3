@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyPENTADBIRAN | Portal Pengurusan Sekolah SK Taman Permas Jaya 3</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/school_logo.png">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Montserrat & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;0,800;0,900;1,700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@1,700&family=Alex+Brush&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind Custom Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Montserrat"', 'sans-serif'],
+            script: ['"Alex Brush"', 'cursive'],
+          },
+          colors: {
+            pjblue: {
+              950: '#030c1d',
+              900: '#071836',
+              850: '#0a224c',
+              800: '#0c2e68',
+              700: '#114494',
+              600: '#1d5ec2',
+            },
+            pjgold: {
+              300: '#fde047',
+              400: '#facc15',
+              500: '#eab308',
+              600: '#ca8a04',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Gold Gradient Text */
+    .text-gold-gradient {
+      background: linear-gradient(180deg, #FFF9D2 0%, #F5C518 45%, #C99700 80%, #996F00 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.45));
+    }
+    
+    .gold-ribbon {
+      background: linear-gradient(180deg, #FBE38E 0%, #E5A817 50%, #B87E00 100%);
+      box-shadow: 0 4px 15px rgba(184, 126, 0, 0.35);
+    }
+    
+    .gold-border-glow {
+      border: 2px solid #F5C518;
+      box-shadow: 0 0 15px rgba(245, 197, 24, 0.3);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #071836;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #ca8a04;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #eab308;
+    }
+
+    /* Card Hover Animations */
+    .module-card {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .module-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px -4px rgba(0, 0, 0, 0.12), 0 8px 10px -6px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Pulse effect on active links */
+    @keyframes subtle-float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+    .floating-badge {
+      animation: subtle-float 3s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="bg-slate-100 text-slate-800 font-sans antialiased min-h-screen flex flex-col selection:bg-pjgold-400 selection:text-pjblue-950">
+
+  <!-- ==================== TOP NAVIGATION BAR ==================== -->
+  <header class="bg-pjblue-900 text-white sticky top-0 z-40 border-b border-pjblue-700/50 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-14">
+        
+        <!-- Logo & School Name -->
+        <div class="flex items-center space-x-3">
+          <a href="#" class="flex items-center space-x-3 group">
+            <img src="assets/school_logo.png" alt="Lencana SKTPJ3" class="w-9 h-9 object-contain bg-white rounded-full p-0.5 shadow-sm group-hover:scale-105 transition">
+            <div class="hidden sm:block">
+              <span class="text-xs uppercase tracking-wider text-pjgold-400 font-semibold block leading-tight">SK TAMAN PERMAS JAYA 3</span>
+              <span class="text-sm font-bold text-white tracking-wide block leading-none">MyPENTADBIRAN</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Quick Nav Links -->
+        <nav class="hidden md:flex items-center space-x-1 lg:space-x-2 text-xs font-semibold">
+          <a href="#" class="px-2.5 py-1.5 rounded-md bg-pjblue-800 text-pjgold-400 font-bold border border-pjgold-500/30 flex items-center gap-1.5"><i class="fa-solid fa-house"></i> Laman Utama</a>
+          <a href="#modul-pentadbiran" class="px-2.5 py-1.5 rounded-md hover:bg-pjblue-800 text-slate-200 hover:text-white transition">Modul</a>
+          <a href="#pautan-pantas" class="px-2.5 py-1.5 rounded-md hover:bg-pjblue-800 text-slate-200 hover:text-white transition">Pautan Pantas</a>
+          <a href="#kalendar" class="px-2.5 py-1.5 rounded-md hover:bg-pjblue-800 text-slate-200 hover:text-white transition">Takwim</a>
+        </nav>
+
+        <!-- Right Side: Search & Settings -->
+        <div class="flex items-center space-x-2">
+          <!-- Realtime Search Bar -->
+          <div class="relative">
+            <input 
+              type="text" 
+              id="moduleSearchInput" 
+              placeholder="Cari modul / fail..." 
+              class="w-36 sm:w-56 pl-8 pr-3 py-1 text-xs rounded-full bg-pjblue-950 text-white placeholder-slate-400 border border-pjblue-700 focus:outline-none focus:border-pjgold-400 focus:w-64 transition-all"
+            >
+            <i class="fa-solid fa-magnifying-glass absolute left-2.5 top-2 text-slate-400 text-xs"></i>
+          </div>
+
+          <!-- Settings Trigger -->
+          <button 
+            id="openSettingsBtn" 
+            class="p-2 text-slate-300 hover:text-pjgold-400 hover:bg-pjblue-800 rounded-lg transition"
+            title="Kemaskini Pautan Pentadbiran (Akses Pentadbir)"
+          >
+            <i class="fa-solid fa-gear text-sm"></i>
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== HERO POSTER BANNER ==================== -->
+  <section class="relative bg-gradient-to-b from-pjblue-900 via-pjblue-850 to-pjblue-800 text-white pt-8 pb-10 overflow-hidden border-b-4 border-pjgold-500 shadow-xl">
+    
+    <!-- Top Decorative Gold Wave Background -->
+    <div class="absolute inset-0 opacity-15 pointer-events-none bg-cover bg-center" style="background-image: url('assets/header_banner.jpg');"></div>
+    <div class="absolute -top-24 -right-24 w-96 h-96 bg-pjgold-400/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10 text-center">
+      
+      <!-- Top Badges & School Identity -->
+      <div class="flex items-center justify-center gap-4 mb-3">
+        <div class="bg-white/95 p-1 rounded-full shadow-lg border-2 border-pjgold-400/60">
+          <img src="assets/school_logo.png" alt="Lencana SKTPJ3" class="w-14 h-14 sm:w-16 sm:h-16 object-contain rounded-full">
+        </div>
+        <div class="text-left">
+          <span class="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-pjgold-300 drop-shadow">
+            KOD SEKOLAH: JBA1092
+          </span>
+          <h2 class="text-base sm:text-xl font-black text-white tracking-wider font-display uppercase drop-shadow">
+            SK TAMAN PERMAS JAYA 3
+          </h2>
+          <span class="inline-block text-[11px] sm:text-xs font-semibold px-2 py-0.5 rounded bg-blue-600/80 text-blue-100 border border-blue-400/30">
+            TS25 • PRESTIG3 • PJ3 BEST
+          </span>
+        </div>
+      </div>
+
+      <!-- Main Portal Big Typography -->
+      <div class="my-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs text-pjgold-300 font-semibold mb-2">
+          <i class="fa-solid fa-sparkles text-pjgold-400"></i> Selamat Datang ke Pusat Digital Pengurusan
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight font-display text-white uppercase drop-shadow-lg">
+          <span class="italic font-light text-pjgold-300">My</span><span class="text-gold-gradient">PENTADBIRAN</span>
+        </h1>
+
+        <!-- Golden 3D Ribbon Sub-header -->
+        <div class="inline-block my-2">
+          <div class="gold-ribbon px-6 sm:px-10 py-1.5 rounded-full text-pjblue-950 font-black tracking-wider text-xs sm:text-sm uppercase shadow-lg border border-yellow-200">
+            PORTAL PENGURUSAN SEKOLAH
+          </div>
+        </div>
+
+        <!-- School Motto -->
+        <p class="font-display italic text-pjgold-200 text-sm sm:text-lg font-bold tracking-wide mt-1">
+          “Kerja Sepasukan Pacu Kecemerlangan”
+        </p>
+        <p class="text-xs sm:text-sm text-slate-300 max-w-2xl mx-auto mt-2 leading-relaxed">
+          Satu pusat rujukan digital bagi pengurusan sekolah yang sistematik, teratur dan berkesan untuk semua warga pendidik dan staf SK Taman Permas Jaya 3.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MAIN 12 MODULES GRID ==================== -->
+  <main id="modul-pentadbiran" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 flex-1">
+    
+    <!-- Section Header -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="w-3 h-8 bg-pjblue-800 rounded-sm inline-block"></span>
+          <h2 class="text-2xl sm:text-3xl font-black text-pjblue-950 font-display uppercase tracking-wide">
+            12 Modul Pengurusan Utama
+          </h2>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-600 mt-1 ml-5">
+          Klik pada mana-mana kad untuk membuka terus dokumen atau folder fail rasmi di Google Drive.
+        </p>
+      </div>
+
+      <!-- Quick Action: Open Full Folder -->
+      <a 
+        id="btnMainFolderSecondary" 
+        href="#" 
+        target="_blank"
+        class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-pjblue-900 hover:bg-pjblue-800 text-white text-xs font-bold shadow-md hover:shadow-lg transition group border border-pjgold-400/40"
+      >
+        <i class="fa-solid fa-folder-tree text-pjgold-400 group-hover:scale-110 transition"></i>
+        <span>Buka Folder Induk Drive</span>
+        <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-300"></i>
+      </a>
+    </div>
+
+    <!-- Active Filter Feedback (Hidden by default) -->
+    <div id="searchFeedback" class="hidden mb-6 p-3 bg-amber-50 border border-amber-200 rounded-xl text-xs text-amber-900 flex items-center justify-between">
+      <div>
+        <i class="fa-solid fa-filter mr-1.5 text-amber-600"></i>
+        Menapis modul dengan kata kunci: <strong id="searchKeyword"></strong> (<span id="matchCount">0</span> modul dijumpai)
+      </div>
+      <button id="clearSearchBtn" class="text-amber-700 hover:text-amber-950 font-bold underline text-xs">
+        Set Semula
+      </button>
+    </div>
+
+    <!-- 12 Cards Grid Container -->
+    <div id="modulesGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <!-- Generated Dynamically by JS -->
+    </div>
+
+  </main>
+
+  <!-- ==================== BOTTOM SECTIONS ==================== -->
+  <section class="bg-white border-t border-slate-200 py-10 shadow-inner">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        
+        <!-- ================= PAUTAN PANTAS ================= -->
+        <div id="pautan-pantas" class="bg-slate-50 rounded-2xl p-5 border border-slate-200 shadow-sm flex flex-col">
+          
+          <!-- Box Header -->
+          <div class="flex items-center justify-between pb-3 mb-4 border-b border-slate-200">
+            <div class="flex items-center gap-2.5 text-pjblue-900">
+              <span class="w-8 h-8 rounded-lg bg-amber-500 text-white flex items-center justify-center text-sm shadow">
+                <i class="fa-solid fa-link"></i>
+              </span>
+              <h3 class="font-extrabold text-base uppercase font-display tracking-tight">Pautan Pantas</h3>
+            </div>
+            <span class="text-[11px] font-semibold text-slate-500">Akses Terus</span>
+          </div>
+
+          <!-- Quick Action Buttons Grid (6 buttons) -->
+          <div id="quickLinksContainer" class="grid grid-cols-2 gap-3 flex-1">
+            <!-- Dynamic via JS -->
+          </div>
+
+        </div>
+
+        <!-- ================= LAJUR 2: KALENDAR PENGURUSAN (TAKWIM AKTIVITI 2026) ================= -->
+        <div id="kalendar" class="bg-slate-50 rounded-2xl p-5 border border-slate-200 shadow-sm flex flex-col">
+          
+          <!-- Box Header -->
+          <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-200">
+            <div class="flex items-center gap-2.5 text-pjblue-900">
+              <span class="w-8 h-8 rounded-lg bg-rose-600 text-white flex items-center justify-center text-sm shadow">
+                <i class="fa-solid fa-calendar-check"></i>
+              </span>
+              <div>
+                <h3 class="font-extrabold text-base uppercase font-display tracking-tight leading-none">Kalendar Pengurusan</h3>
+                <span class="text-[10px] text-slate-500 font-semibold">Takwim Rasmi SKTPJ3 2026</span>
+              </div>
+            </div>
+            <a 
+              id="lihatSemuaTakwimBtn" 
+              href="#" 
+              target="_blank" 
+              class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-bold bg-rose-50 text-rose-700 hover:bg-rose-100 border border-rose-200 transition"
+              title="Buka fail Takwim Lengkap di Google Drive"
+            >
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+              <span>PDF Takwim</span>
+            </a>
+          </div>
+
+          <!-- Dynamic Calendar Card -->
+          <div class="bg-white rounded-xl p-3.5 border border-slate-200 shadow-sm mb-3">
+            
+            <!-- Month Selector Header -->
+            <div class="flex items-center justify-between mb-3 pb-2 border-b border-slate-100">
+              <button 
+                id="calPrevMonthBtn" 
+                type="button"
+                class="w-7 h-7 rounded-lg bg-slate-100 hover:bg-pjblue-100 text-slate-600 hover:text-pjblue-900 flex items-center justify-center transition border border-slate-200 cursor-pointer"
+                title="Bulan Sebelumnya"
+              >
+                <i class="fa-solid fa-chevron-left text-xs"></i>
+              </button>
+
+              <!-- Month Selection Dropdown -->
+              <div class="relative flex items-center">
+                <select 
+                  id="monthSelectorSelect" 
+                  class="font-black text-xs sm:text-sm text-pjblue-900 bg-slate-50 hover:bg-slate-100 border border-slate-300 rounded-lg pl-3 pr-7 py-1 focus:ring-2 focus:ring-pjblue-500 focus:outline-none cursor-pointer uppercase tracking-wide appearance-none font-display shadow-xs"
+                >
+                  <option value="1">Januari 2026</option>
+                  <option value="2">Februari 2026</option>
+                  <option value="3">Mac 2026</option>
+                  <option value="4">April 2026</option>
+                  <option value="5">Mei 2026</option>
+                  <option value="6">Jun 2026</option>
+                  <option value="7">Julai 2026</option>
+                  <option value="8">Ogos 2026</option>
+                  <option value="9">September 2026</option>
+                  <option value="10" selected>Oktober 2026</option>
+                  <option value="11">November 2026</option>
+                  <option value="12">Disember 2026</option>
+                </select>
+                <i class="fa-solid fa-chevron-down text-[10px] text-slate-400 absolute right-2.5 pointer-events-none"></i>
+              </div>
+
+              <button 
+                id="calNextMonthBtn" 
+                type="button"
+                class="w-7 h-7 rounded-lg bg-slate-100 hover:bg-pjblue-100 text-slate-600 hover:text-pjblue-900 flex items-center justify-center transition border border-slate-200 cursor-pointer"
+                title="Bulan Seterusnya"
+              >
+                <i class="fa-solid fa-chevron-right text-xs"></i>
+              </button>
+            </div>
+
+            <!-- Days of Week Header (Ahad - Sabtu) -->
+            <div class="grid grid-cols-7 gap-1 text-center text-[10px] font-bold text-slate-500 mb-1.5 border-b pb-1">
+              <span class="text-rose-600">AHAD</span>
+              <span>ISN</span>
+              <span>SEL</span>
+              <span>RAB</span>
+              <span>KHA</span>
+              <span class="text-emerald-600">JUM</span>
+              <span class="text-indigo-600">SAB</span>
+            </div>
+
+            <!-- Dynamic Calendar Days Grid -->
+            <div id="calendarDaysGrid" class="grid grid-cols-7 gap-1 text-center text-[11px] font-semibold min-h-[140px]">
+              <!-- Populated via JS -->
+            </div>
+
+            <!-- Category Legend -->
+            <div class="flex flex-wrap items-center justify-center gap-2 pt-2 mt-2 border-t border-slate-100 text-[10px] font-semibold text-slate-600">
+              <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-blue-600"></span> Pentadbiran</span>
+              <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span> Kurikulum</span>
+              <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span> HEM</span>
+              <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-purple-600"></span> Kokurikulum</span>
+              <span class="flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-rose-600"></span> Cuti / Khas</span>
+            </div>
+
+          </div>
+
+          <!-- Category Filter Tabs -->
+          <div class="flex items-center gap-1 overflow-x-auto pb-1 mb-2.5 text-[10px] font-bold no-scrollbar">
+            <button class="cal-filter-btn active px-2.5 py-1 rounded-lg bg-pjblue-900 text-white transition whitespace-nowrap shadow-xs cursor-pointer" data-category="ALL">
+              Semua
+            </button>
+            <button class="cal-filter-btn px-2.5 py-1 rounded-lg bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 transition whitespace-nowrap cursor-pointer" data-category="Pentadbiran">
+              Pentadbiran
+            </button>
+            <button class="cal-filter-btn px-2.5 py-1 rounded-lg bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 transition whitespace-nowrap cursor-pointer" data-category="Kurikulum">
+              Kurikulum
+            </button>
+            <button class="cal-filter-btn px-2.5 py-1 rounded-lg bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 transition whitespace-nowrap cursor-pointer" data-category="HEM">
+              HEM
+            </button>
+            <button class="cal-filter-btn px-2.5 py-1 rounded-lg bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 transition whitespace-nowrap cursor-pointer" data-category="Kokurikulum">
+              Kokurikulum
+            </button>
+            <button class="cal-filter-btn px-2.5 py-1 rounded-lg bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 transition whitespace-nowrap cursor-pointer" data-category="Cuti / Khas">
+              Cuti / Khas
+            </button>
+          </div>
+
+          <!-- Active Events Header & Date Filter Reset -->
+          <div class="flex items-center justify-between mb-2">
+            <span id="calendarEventsHeader" class="text-xs font-black text-pjblue-900 font-display uppercase tracking-wide">
+              Aktiviti Takwim (Oktober 2026)
+            </span>
+            <button 
+              id="resetDateFilterBtn" 
+              type="button"
+              class="hidden text-[10px] font-bold text-rose-600 hover:text-rose-800 bg-rose-50 hover:bg-rose-100 px-2 py-0.5 rounded border border-rose-200 transition cursor-pointer"
+            >
+              <i class="fa-solid fa-rotate-left mr-1"></i> Tunjuk Semua Bulan
+            </button>
+          </div>
+
+          <!-- Dynamic Events Container (Custom scrollbar, max height ~350px) -->
+          <div 
+            id="calendarEventsContainer" 
+            class="space-y-2 flex-1 max-h-[350px] overflow-y-auto pr-1"
+            style="scrollbar-width: thin; scrollbar-color: #cbd5e1 transparent;"
+          >
+            <!-- Populated via JS -->
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER SECTION ==================== -->
+  <footer class="bg-pjblue-950 text-white border-t-4 border-pjgold-500 relative overflow-hidden">
+    
+    <!-- Footer Decorative Banner Image Overlay -->
+    <div class="w-full h-24 sm:h-32 bg-cover bg-center opacity-40 border-b border-pjblue-800" style="background-image: url('assets/footer_banner.jpg');"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 relative z-10">
+      
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+        
+        <!-- School Identity -->
+        <div class="flex items-center space-x-4">
+          <img src="assets/school_logo.png" alt="Lencana SKTPJ3" class="w-12 h-12 object-contain bg-white rounded-full p-1 shadow">
+          <div>
+            <h4 class="font-extrabold text-white text-base font-display uppercase tracking-wide">
+              SK TAMAN PERMAS JAYA 3 <span class="text-pjgold-400">• PJ3 BEST</span>
+            </h4>
+            <p class="font-display italic text-pjgold-300 text-xs mt-0.5">
+              “Kerja Sepasukan Pacu Kecemerlangan”
+            </p>
+            <p class="text-[11px] text-slate-400 mt-1">
+              Jalan Permas 7, Bandar Baru Permas Jaya, 81750 Masai, Johor • Kod Sekolah: JBA1092
+            </p>
+          </div>
+        </div>
+
+        <!-- Quick Links / Badges -->
+        <div class="flex flex-wrap items-center justify-center gap-2 text-xs">
+          <span class="px-2.5 py-1 rounded bg-pjblue-900 text-slate-300 border border-pjblue-800">
+            <i class="fa-solid fa-graduation-cap text-pjgold-400 mr-1"></i> Program TS25
+          </span>
+          <span class="px-2.5 py-1 rounded bg-pjblue-900 text-slate-300 border border-pjblue-800">
+            <i class="fa-solid fa-star text-pjgold-400 mr-1"></i> PRESTIG3
+          </span>
+          <span class="px-2.5 py-1 rounded bg-pjblue-900 text-slate-300 border border-pjblue-800">
+            <i class="fa-solid fa-shield-halved text-pjgold-400 mr-1"></i> Portal Rasmi
+          </span>
+        </div>
+
+      </div>
+
+      <div class="mt-8 pt-4 border-t border-pjblue-900 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500 gap-2">
+        <p>© 2026 Pengurusan SK Taman Permas Jaya 3. Hak Cipta Terpelihara.</p>
+        <p>Dibina untuk kemudahan pentadbiran & pengurusan digital sekolah.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==================== MODAL KATA LALUAN PENTADBIR ==================== -->
+  <div id="adminAuthModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl border border-slate-200 text-center animate-fade-in">
+      <div class="w-14 h-14 rounded-full bg-pjblue-900 text-pjgold-400 mx-auto flex items-center justify-center text-2xl shadow-lg mb-3 border-2 border-pjgold-400/40">
+        <i class="fa-solid fa-lock"></i>
+      </div>
+      <h3 class="text-lg font-black text-pjblue-950 font-display">Akses Pentadbir</h3>
+      <p class="text-xs text-slate-500 mt-1 mb-4 leading-relaxed">
+        Sila masukkan kata laluan keselamatan untuk membuka tetapan portal.
+      </p>
+
+      <form id="adminAuthForm" class="space-y-3" onsubmit="return false;">
+        <div>
+          <input 
+            type="password" 
+            id="adminPasswordInput" 
+            autocomplete="current-password"
+            class="w-full text-sm px-4 py-2.5 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-pjblue-700 text-center font-mono tracking-widest text-slate-800 shadow-inner"
+            placeholder="••••••••"
+          >
+        </div>
+        <p id="authErrorMsg" class="text-xs text-rose-600 font-bold hidden"></p>
+
+        <div class="flex items-center gap-2 pt-2">
+          <button 
+            id="btnCancelAuth" 
+            type="button" 
+            class="w-1/2 py-2.5 rounded-xl border border-slate-300 text-slate-700 hover:bg-slate-100 text-xs font-bold transition"
+          >
+            Batal
+          </button>
+          <button 
+            id="btnSubmitAuth" 
+            type="submit" 
+            class="w-1/2 py-2.5 rounded-xl bg-pjblue-900 hover:bg-pjblue-800 text-pjgold-300 font-bold text-xs shadow-md transition flex items-center justify-center gap-1.5"
+          >
+            <i class="fa-solid fa-key text-xs"></i> Masuk
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL TETAPAN PAUTAN (SETTINGS) ==================== -->
+  <div id="settingsModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] flex flex-col shadow-2xl overflow-hidden animate-fade-in border border-slate-200">
+      
+      <!-- Modal Header -->
+      <div class="bg-pjblue-900 text-white px-6 py-4 flex items-center justify-between border-b border-pjblue-800">
+        <div class="flex items-center gap-2.5">
+          <i class="fa-solid fa-sliders text-pjgold-400 text-lg"></i>
+          <div>
+            <h3 class="font-bold text-base">Tetapan Pautan Google Drive</h3>
+            <p class="text-[11px] text-slate-300">Kemaskini URL folder atau fail dokumen bagi setiap kad modul</p>
+          </div>
+        </div>
+        <button id="closeSettingsBtn" class="text-slate-400 hover:text-white p-1 rounded-lg transition">
+          <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body (Form) -->
+      <div class="p-6 overflow-y-auto space-y-5 flex-1">
+        
+        <!-- Folder Utama -->
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase tracking-wide mb-1">
+            <i class="fa-brands fa-google-drive text-amber-500 mr-1"></i> Pautan Folder Induk Google Drive
+          </label>
+          <input 
+            type="url" 
+            id="settingMainFolder" 
+            class="w-full text-xs px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-pjblue-600 focus:border-transparent font-mono"
+            placeholder="https://drive.google.com/drive/folders/..."
+          >
+          <p class="text-[10px] text-slate-500 mt-1">Pautan ini digunakan oleh modul tanpa fail khusus.</p>
+        </div>
+
+        <!-- Tukar Kata Laluan Pentadbir -->
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase tracking-wide mb-1">
+            <i class="fa-solid fa-key text-pjblue-700 mr-1"></i> Kata Laluan Pentadbir (Admin Access Password)
+          </label>
+          <input 
+            type="text" 
+            id="settingAdminPassword" 
+            class="w-full text-xs px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-pjblue-600 focus:border-transparent font-mono"
+            placeholder="Kata laluan pentadbir..."
+          >
+          <p class="text-[10px] text-slate-500 mt-1">Kata laluan lalai: <code>admin123</code>. Simpan untuk mengemas kini kata laluan ini.</p>
+        </div>
+
+        <hr class="border-slate-200">
+
+        <!-- 12 Modul Links -->
+        <div>
+          <h4 class="text-xs font-extrabold text-pjblue-950 uppercase tracking-wide mb-3 flex items-center gap-1.5">
+            <i class="fa-solid fa-layer-group text-pjblue-700"></i> Pautan 12 Kad Modul Pentadbiran
+          </h4>
+          
+          <div id="settingsModulesList" class="space-y-3">
+            <!-- Dynamic Inputs via JS -->
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="bg-slate-50 px-6 py-3.5 border-t border-slate-200 flex items-center justify-between">
+        <button 
+          id="btnResetSettings" 
+          type="button" 
+          class="px-3.5 py-1.5 rounded-lg border border-rose-300 text-rose-700 hover:bg-rose-50 text-xs font-bold transition flex items-center gap-1.5"
+        >
+          <i class="fa-solid fa-rotate-left"></i> Set Semula ke Asal
+        </button>
+
+        <div class="flex items-center gap-2">
+          <button 
+            id="btnCancelSettings" 
+            type="button" 
+            class="px-4 py-1.5 rounded-lg border border-slate-300 text-slate-700 hover:bg-slate-100 text-xs font-bold transition"
+          >
+            Batal
+          </button>
+          <button 
+            id="btnSaveSettings" 
+            type="button" 
+            class="px-5 py-1.5 rounded-lg bg-pjblue-900 hover:bg-pjblue-800 text-pjgold-300 font-bold text-xs shadow-md transition flex items-center gap-1.5"
+          >
+            <i class="fa-solid fa-check"></i> Simpan Pautan
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toastNotification" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+    <div class="bg-pjblue-900 text-white px-4 py-2.5 rounded-xl shadow-xl border border-pjgold-400 flex items-center gap-2.5 text-xs font-bold">
+      <i class="fa-solid fa-circle-check text-pjgold-400 text-sm"></i>
+      <span id="toastMessage">Pautan berjaya disimpan!</span>
+    </div>
+  </div>
+
+  <!-- Load Takwim Data, Config & Core Interaction Logic -->
+  <script src="takwim_data.js"></script>
+  <script src="config.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      let currentConfig = getSavedConfig();
+
+      // DOM Elements
+      const modulesGrid = document.getElementById("modulesGrid");
+      const quickLinksContainer = document.getElementById("quickLinksContainer");
+      const calendarEventsContainer = document.getElementById("calendarEventsContainer");
+      const calendarDaysGrid = document.getElementById("calendarDaysGrid");
+      const monthSelectorSelect = document.getElementById("monthSelectorSelect");
+      const calPrevMonthBtn = document.getElementById("calPrevMonthBtn");
+      const calNextMonthBtn = document.getElementById("calNextMonthBtn");
+      const calendarEventsHeader = document.getElementById("calendarEventsHeader");
+      const resetDateFilterBtn = document.getElementById("resetDateFilterBtn");
+      const categoryFilterBtns = document.querySelectorAll(".cal-filter-btn");
+      const btnMainFolderSecondary = document.getElementById("btnMainFolderSecondary");
+      const lihatSemuaTakwimBtn = document.getElementById("lihatSemuaTakwimBtn");
+
+      // Search Elements
+      const moduleSearchInput = document.getElementById("moduleSearchInput");
+      const searchFeedback = document.getElementById("searchFeedback");
+      const searchKeyword = document.getElementById("searchKeyword");
+      const matchCount = document.getElementById("matchCount");
+      const clearSearchBtn = document.getElementById("clearSearchBtn");
+
+      // Set Main Folder Links
+      function updateMainLinks() {
+        const folderUrl = currentConfig.mainDriveFolder || DEFAULT_PORTAL_CONFIG.mainDriveFolder;
+        if (btnMainFolderSecondary) btnMainFolderSecondary.href = folderUrl;
+        if (lihatSemuaTakwimBtn) {
+          // Takwim link
+          const takwimModule = currentConfig.modules.find(m => m.id === "06");
+          lihatSemuaTakwimBtn.href = takwimModule ? takwimModule.url : folderUrl;
+        }
+      }
+
+      // Render 12 Module Cards
+      function renderModules(filter = "") {
+        modulesGrid.innerHTML = "";
+        const query = filter.trim().toLowerCase();
+        let matched = 0;
+
+        currentConfig.modules.forEach(mod => {
+          const isMatch = !query || 
+            mod.title.toLowerCase().includes(query) || 
+            mod.desc.toLowerCase().includes(query) || 
+            mod.id.includes(query);
+
+          if (isMatch) matched++;
+
+          const card = document.createElement("div");
+          card.className = `module-card group bg-white rounded-2xl p-4 shadow-sm border border-slate-200/80 hover:shadow-xl hover:border-slate-300 relative flex flex-col justify-between overflow-hidden cursor-pointer transition ${isMatch ? '' : 'hidden'}`;
+          
+          card.innerHTML = `
+            <!-- Top Card Header: Number Badge & Category -->
+            <div class="flex items-center justify-between mb-3">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-black text-white ${mod.badgeClass} shadow-sm tracking-wider">
+                ${mod.id}
+              </span>
+              <span class="text-[10px] uppercase font-bold text-slate-400 group-hover:text-pjblue-600 transition tracking-wider">
+                PORTAL PJ3
+              </span>
+            </div>
+
+            <!-- Card Thumbnail / Icon Image -->
+            <div class="relative w-full h-36 bg-slate-50 rounded-xl overflow-hidden mb-3 border border-slate-100 flex items-center justify-center p-2 group-hover:bg-slate-100/50 transition">
+              <img 
+                src="${mod.icon}" 
+                alt="${mod.title}" 
+                class="w-full h-full object-contain group-hover:scale-105 transition duration-300 rounded-lg drop-shadow-sm"
+                onerror="this.onerror=null; this.src='assets/school_logo.png';"
+              >
+            </div>
+
+            <!-- Title & Description -->
+            <div class="flex-1 flex flex-col justify-between">
+              <div>
+                <h3 class="font-extrabold text-sm sm:text-base text-slate-800 group-hover:text-pjblue-700 transition leading-snug font-display uppercase tracking-tight">
+                  ${mod.title}
+                </h3>
+                <p class="text-xs text-slate-500 mt-1 leading-relaxed line-clamp-2">
+                  ${mod.desc}
+                </p>
+              </div>
+
+              <!-- Action Link / Button -->
+              <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-pjblue-700 group-hover:text-pjblue-900">
+                <span class="flex items-center gap-1.5">
+                  <i class="fa-brands fa-google-drive text-amber-500 text-sm"></i>
+                  <span>Buka Dokumen</span>
+                </span>
+                <span class="w-7 h-7 rounded-full bg-slate-100 group-hover:bg-pjblue-900 group-hover:text-pjgold-400 flex items-center justify-center transition shadow-sm text-slate-600">
+                  <i class="fa-solid fa-arrow-right text-[11px] transform group-hover:translate-x-0.5 transition"></i>
+                </span>
+              </div>
+            </div>
+          `;
+
+          // Direct Link Click
+          card.addEventListener("click", () => {
+            const targetUrl = mod.url || currentConfig.mainDriveFolder;
+            window.open(targetUrl, "_blank");
+          });
+
+          modulesGrid.appendChild(card);
+        });
+
+        // Search feedback banner
+        if (query) {
+          searchFeedback.classList.remove("hidden");
+          searchKeyword.textContent = `"${filter}"`;
+          matchCount.textContent = matched;
+        } else {
+          searchFeedback.classList.add("hidden");
+        }
+      }
+
+      // Render Pautan Pantas
+      function renderQuickLinks() {
+        quickLinksContainer.innerHTML = "";
+        currentConfig.quickLinks.forEach(ql => {
+          const btn = document.createElement("a");
+          btn.href = ql.url;
+          btn.target = "_blank";
+          btn.className = `p-3 rounded-xl border ${ql.bgColor} transition flex flex-col items-center justify-center text-center group shadow-sm hover:shadow`;
+          
+          btn.innerHTML = `
+            <i class="${ql.icon} ${ql.iconColor} text-xl mb-1.5 group-hover:scale-110 transition"></i>
+            <span class="text-xs font-extrabold text-slate-800 group-hover:text-pjblue-900 leading-tight">
+              ${ql.title}
+            </span>
+            <span class="text-[10px] text-slate-500 mt-0.5 leading-tight">
+              ${ql.desc}
+            </span>
+          `;
+
+          quickLinksContainer.appendChild(btn);
+        });
+      }
+
+      // ================= KALENDAR PENGURUSAN TAKWIM ENGINE =================
+      let currentTakwimYear = 2026;
+      let currentTakwimMonth = 10; // Default: Oktober 2026
+      let selectedDateDay = null;  // null = paparkan semua aktiviti bulan ini
+      let selectedCategory = "ALL"; // ALL | Pentadbiran | Kurikulum | HEM | Kokurikulum | Cuti / Khas
+
+      const monthNamesMalay = [
+        "", "Januari", "Februari", "Mac", "April", "Mei", "Jun",
+        "Julai", "Ogos", "September", "Oktober", "November", "Disember"
+      ];
+
+      const catBadgeStyles = {
+        "Pentadbiran": "bg-blue-50 text-blue-800 border-blue-200",
+        "Kurikulum": "bg-emerald-50 text-emerald-800 border-emerald-200",
+        "HEM": "bg-amber-50 text-amber-800 border-amber-200",
+        "Kokurikulum": "bg-purple-50 text-purple-800 border-purple-200",
+        "Cuti / Khas": "bg-rose-50 text-rose-800 border-rose-200"
+      };
+
+      const catDateStyles = {
+        "Pentadbiran": "bg-blue-50 border-blue-200 text-blue-900",
+        "Kurikulum": "bg-emerald-50 border-emerald-200 text-emerald-900",
+        "HEM": "bg-amber-50 border-amber-200 text-amber-900",
+        "Kokurikulum": "bg-purple-50 border-purple-200 text-purple-900",
+        "Cuti / Khas": "bg-rose-50 border-rose-200 text-rose-900"
+      };
+
+      function getMonthTakwimData(m) {
+        if (typeof PORTAL_TAKWIM_2026 !== 'undefined' && PORTAL_TAKWIM_2026[m]) {
+          return PORTAL_TAKWIM_2026[m];
+        }
+        return null;
+      }
+
+      function renderCalendarGrid() {
+        if (!calendarDaysGrid) return;
+        calendarDaysGrid.innerHTML = "";
+
+        const monthData = getMonthTakwimData(currentTakwimMonth);
+        if (monthSelectorSelect) {
+          monthSelectorSelect.value = currentTakwimMonth;
+        }
+
+        // Sunday = 0, Monday = 1, ..., Saturday = 6
+        const firstDayIdx = new Date(currentTakwimYear, currentTakwimMonth - 1, 1).getDay();
+        const daysInCurrentMonth = new Date(currentTakwimYear, currentTakwimMonth, 0).getDate();
+        const daysInPrevMonth = new Date(currentTakwimYear, currentTakwimMonth - 1, 0).getDate();
+
+        // 1. Previous month trailing days
+        for (let i = firstDayIdx - 1; i >= 0; i--) {
+          const prevDay = daysInPrevMonth - i;
+          const cell = document.createElement("div");
+          cell.className = "py-1.5 text-slate-300 text-[10px] select-none text-center font-normal";
+          cell.textContent = prevDay;
+          calendarDaysGrid.appendChild(cell);
+        }
+
+        // 2. Current month active days
+        const activeDaysMap = monthData && monthData.days ? monthData.days : {};
+
+        for (let d = 1; d <= daysInCurrentMonth; d++) {
+          const dayStr = String(d);
+          const dayInfo = activeDaysMap[dayStr];
+          const hasEvents = dayInfo && dayInfo.items && dayInfo.items.length > 0;
+          const isSelected = selectedDateDay === d;
+
+          const cell = document.createElement("button");
+          cell.type = "button";
+          cell.setAttribute("data-day", d);
+
+          let baseClass = "relative py-1 rounded-lg text-[11px] flex flex-col items-center justify-center transition cursor-pointer min-h-[36px] ";
+
+          if (isSelected) {
+            baseClass += "bg-pjblue-900 text-white font-black shadow-md ring-2 ring-pjgold-400 scale-105 z-10 ";
+          } else if (hasEvents) {
+            const hasCuti = dayInfo.items.some(it => it.category === "Cuti / Khas");
+            const hasKey = dayInfo.items.some(it => it.isKeyHighlight);
+
+            if (hasCuti) {
+              baseClass += "bg-rose-50 text-rose-900 hover:bg-rose-100 font-extrabold border border-rose-300 shadow-2xs ";
+            } else if (hasKey) {
+              baseClass += "bg-amber-50 text-amber-950 hover:bg-amber-100 font-black border border-amber-300 shadow-2xs ";
+            } else {
+              baseClass += "bg-blue-50/80 text-pjblue-950 hover:bg-blue-100 font-bold border border-blue-200/80 shadow-2xs ";
+            }
+          } else {
+            baseClass += "text-slate-600 hover:bg-slate-100 font-medium ";
+          }
+
+          cell.className = baseClass;
+
+          // Day number label
+          let innerHtml = `<span class="leading-none text-[11px]">${d}</span>`;
+
+          // Category dots
+          if (hasEvents) {
+            const dots = [];
+            const cats = new Set(dayInfo.items.map(it => it.category));
+            if (cats.has("Pentadbiran")) dots.push('<span class="w-1.5 h-1.5 rounded-full bg-blue-600" title="Pentadbiran"></span>');
+            if (cats.has("Kurikulum")) dots.push('<span class="w-1.5 h-1.5 rounded-full bg-emerald-600" title="Kurikulum"></span>');
+            if (cats.has("HEM")) dots.push('<span class="w-1.5 h-1.5 rounded-full bg-amber-500" title="HEM"></span>');
+            if (cats.has("Kokurikulum")) dots.push('<span class="w-1.5 h-1.5 rounded-full bg-purple-600" title="Kokurikulum"></span>');
+            if (cats.has("Cuti / Khas")) dots.push('<span class="w-1.5 h-1.5 rounded-full bg-rose-600" title="Cuti / Khas"></span>');
+
+            innerHtml += `<div class="flex items-center gap-0.5 mt-1">${dots.slice(0, 3).join('')}</div>`;
+            cell.title = `${d} ${monthNamesMalay[currentTakwimMonth]} 2026: ${dayInfo.items.length} aktiviti direkodkan`;
+          }
+
+          cell.innerHTML = innerHtml;
+
+          cell.addEventListener("click", () => {
+            if (selectedDateDay === d) {
+              selectedDateDay = null; // Toggle off to view entire month
+            } else {
+              selectedDateDay = d;
+            }
+            renderCalendarGrid();
+            renderCalendarEvents();
+          });
+
+          calendarDaysGrid.appendChild(cell);
+        }
+
+        // 3. Next month trailing days
+        const totalRendered = firstDayIdx + daysInCurrentMonth;
+        const remaining = (7 - (totalRendered % 7)) % 7;
+        for (let j = 1; j <= remaining; j++) {
+          const nextDayCell = document.createElement("div");
+          nextDayCell.className = "py-1.5 text-slate-300 text-[10px] select-none text-center font-normal";
+          nextDayCell.textContent = j;
+          calendarDaysGrid.appendChild(nextDayCell);
+        }
+      }
+
+      function renderCalendarEvents() {
+        if (!calendarEventsContainer) return;
+        calendarEventsContainer.innerHTML = "";
+
+        const monthData = getMonthTakwimData(currentTakwimMonth);
+        const monthName = monthNamesMalay[currentTakwimMonth];
+
+        // Header text & Reset Button visibility
+        if (selectedDateDay) {
+          calendarEventsHeader.textContent = `Aktiviti Pada ${selectedDateDay} ${monthName} 2026`;
+          if (resetDateFilterBtn) resetDateFilterBtn.classList.remove("hidden");
+        } else {
+          calendarEventsHeader.textContent = `Aktiviti Bulan ${monthName} 2026`;
+          if (resetDateFilterBtn) resetDateFilterBtn.classList.add("hidden");
+        }
+
+        if (!monthData || !monthData.allEvents || monthData.allEvents.length === 0) {
+          calendarEventsContainer.innerHTML = `
+            <div class="p-6 text-center bg-white rounded-xl border border-dashed border-slate-200 text-xs text-slate-400">
+              <i class="fa-regular fa-calendar-xmark text-2xl text-slate-300 mb-2 block"></i>
+              Tiada aktiviti rasmi direkodkan dalam takwim untuk bulan ${monthName} 2026.
+            </div>
+          `;
+          return;
+        }
+
+        let filtered = monthData.allEvents;
+
+        if (selectedDateDay !== null) {
+          filtered = filtered.filter(evt => evt.day === selectedDateDay);
+        }
+
+        if (selectedCategory !== "ALL") {
+          filtered = filtered.filter(evt => evt.category === selectedCategory);
+        }
+
+        if (filtered.length === 0) {
+          calendarEventsContainer.innerHTML = `
+            <div class="p-5 text-center bg-white rounded-xl border border-dashed border-slate-200 text-xs text-slate-500">
+              <i class="fa-solid fa-filter-circle-xmark text-lg text-slate-400 mb-1.5 block"></i>
+              Tiada aktiviti ditemui bagi kategori <strong>${selectedCategory}</strong> ${selectedDateDay ? 'pada ' + selectedDateDay + ' ' + monthName : 'dalam bulan ini'}.
+            </div>
+          `;
+          return;
+        }
+
+        filtered.forEach(evt => {
+          const item = document.createElement("div");
+          item.className = "p-2.5 rounded-xl bg-white border border-slate-200/90 hover:border-pjblue-300 shadow-2xs hover:shadow-xs transition flex items-start gap-2.5 group";
+
+          const badgeClass = catBadgeStyles[evt.category] || "bg-slate-100 text-slate-800 border-slate-200";
+          const dateBoxClass = catDateStyles[evt.category] || "bg-slate-50 border-slate-200 text-slate-800";
+
+          item.innerHTML = `
+            <!-- Date Box -->
+            <div class="flex flex-col items-center justify-center px-2 py-1.5 rounded-lg border ${dateBoxClass} min-w-[52px] shrink-0 text-center shadow-2xs">
+              <span class="text-sm font-black leading-none">${evt.day}</span>
+              <span class="text-[9px] font-bold uppercase mt-0.5 text-slate-600">${evt.dayName ? evt.dayName.substring(0, 3) : ''}</span>
+            </div>
+
+            <!-- Content -->
+            <div class="flex-1 min-w-0">
+              <div class="flex items-center gap-1.5 mb-1 flex-wrap">
+                <span class="px-2 py-0.5 rounded text-[9px] font-extrabold border ${badgeClass}">
+                  ${evt.category}
+                </span>
+                ${evt.isKeyHighlight ? `
+                  <span class="px-1.5 py-0.5 rounded text-[9px] font-black bg-amber-50 text-amber-900 border border-amber-300 flex items-center gap-1">
+                    <i class="fa-solid fa-star text-[8px] text-amber-500"></i> Program Utama
+                  </span>
+                ` : ''}
+              </div>
+              <p class="text-xs font-bold text-slate-800 group-hover:text-pjblue-900 transition leading-snug">
+                ${evt.title}
+              </p>
+            </div>
+          `;
+
+          calendarEventsContainer.appendChild(item);
+        });
+      }
+
+      // Kalendar Event Listeners
+      if (calPrevMonthBtn) {
+        calPrevMonthBtn.addEventListener("click", () => {
+          currentTakwimMonth = currentTakwimMonth > 1 ? currentTakwimMonth - 1 : 12;
+          selectedDateDay = null;
+          renderCalendarGrid();
+          renderCalendarEvents();
+        });
+      }
+
+      if (calNextMonthBtn) {
+        calNextMonthBtn.addEventListener("click", () => {
+          currentTakwimMonth = currentTakwimMonth < 12 ? currentTakwimMonth + 1 : 1;
+          selectedDateDay = null;
+          renderCalendarGrid();
+          renderCalendarEvents();
+        });
+      }
+
+      if (monthSelectorSelect) {
+        monthSelectorSelect.addEventListener("change", (e) => {
+          currentTakwimMonth = parseInt(e.target.value, 10);
+          selectedDateDay = null;
+          renderCalendarGrid();
+          renderCalendarEvents();
+        });
+      }
+
+      if (resetDateFilterBtn) {
+        resetDateFilterBtn.addEventListener("click", () => {
+          selectedDateDay = null;
+          renderCalendarGrid();
+          renderCalendarEvents();
+        });
+      }
+
+      categoryFilterBtns.forEach(btn => {
+        btn.addEventListener("click", () => {
+          categoryFilterBtns.forEach(b => {
+            b.classList.remove("active", "bg-pjblue-900", "text-white");
+            b.classList.add("bg-white", "text-slate-700");
+          });
+          btn.classList.add("active", "bg-pjblue-900", "text-white");
+          btn.classList.remove("bg-white", "text-slate-700");
+          selectedCategory = btn.getAttribute("data-category");
+          renderCalendarEvents();
+        });
+      });
+
+      // Search Handlers
+      moduleSearchInput.addEventListener("input", (e) => {
+        renderModules(e.target.value);
+      });
+
+      clearSearchBtn.addEventListener("click", () => {
+        moduleSearchInput.value = "";
+        renderModules("");
+      });
+
+      // Auth Modal Elements
+      const adminAuthModal = document.getElementById("adminAuthModal");
+      const adminPasswordInput = document.getElementById("adminPasswordInput");
+      const authErrorMsg = document.getElementById("authErrorMsg");
+      const btnCancelAuth = document.getElementById("btnCancelAuth");
+      const btnSubmitAuth = document.getElementById("btnSubmitAuth");
+      const adminAuthForm = document.getElementById("adminAuthForm");
+
+      // Settings Modal Elements
+      const settingsModal = document.getElementById("settingsModal");
+      const openSettingsBtn = document.getElementById("openSettingsBtn");
+      const closeSettingsBtn = document.getElementById("closeSettingsBtn");
+      const btnCancelSettings = document.getElementById("btnCancelSettings");
+      const btnSaveSettings = document.getElementById("btnSaveSettings");
+      const btnResetSettings = document.getElementById("btnResetSettings");
+      const settingMainFolder = document.getElementById("settingMainFolder");
+      const settingAdminPassword = document.getElementById("settingAdminPassword");
+      const settingsModulesList = document.getElementById("settingsModulesList");
+
+      // Password Protected Settings Trigger
+      function requestAdminAccess() {
+        authErrorMsg.classList.add("hidden");
+        adminPasswordInput.value = "";
+        adminAuthModal.classList.remove("hidden");
+        setTimeout(() => adminPasswordInput.focus(), 100);
+      }
+
+      function closeAuthModal() {
+        adminAuthModal.classList.add("hidden");
+        adminPasswordInput.value = "";
+        authErrorMsg.classList.add("hidden");
+      }
+
+      function verifyAdminPassword() {
+        const entered = adminPasswordInput.value;
+        const validPassword = currentConfig.adminPassword || DEFAULT_PORTAL_CONFIG.adminPassword || "admin123";
+        if (entered === validPassword) {
+          closeAuthModal();
+          openSettings();
+        } else {
+          authErrorMsg.textContent = "Kata laluan tidak sah! Sila cuba lagi.";
+          authErrorMsg.classList.remove("hidden");
+          adminPasswordInput.classList.add("border-rose-500", "ring-1", "ring-rose-500");
+          setTimeout(() => {
+            adminPasswordInput.classList.remove("border-rose-500", "ring-1", "ring-rose-500");
+          }, 1500);
+        }
+      }
+
+      openSettingsBtn.addEventListener("click", requestAdminAccess);
+      btnCancelAuth.addEventListener("click", closeAuthModal);
+      btnSubmitAuth.addEventListener("click", verifyAdminPassword);
+      adminAuthForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        verifyAdminPassword();
+      });
+      adminAuthModal.addEventListener("click", (e) => {
+        if (e.target === adminAuthModal) closeAuthModal();
+      });
+
+      // Settings Modal Handlers
+      function openSettings() {
+        settingMainFolder.value = currentConfig.mainDriveFolder || "";
+        settingAdminPassword.value = currentConfig.adminPassword || "admin123";
+        settingsModulesList.innerHTML = "";
+
+        currentConfig.modules.forEach((mod, idx) => {
+          const row = document.createElement("div");
+          row.className = "p-2.5 bg-slate-50 rounded-xl border border-slate-200 flex flex-col sm:flex-row sm:items-center gap-2";
+          row.innerHTML = `
+            <div class="sm:w-1/3 flex items-center gap-2">
+              <span class="px-2 py-0.5 rounded text-[10px] font-bold text-white ${mod.badgeClass}">
+                ${mod.id}
+              </span>
+              <span class="text-xs font-bold text-slate-800 truncate" title="${mod.title}">
+                ${mod.title}
+              </span>
+            </div>
+            <div class="sm:w-2/3">
+              <input 
+                type="url" 
+                data-mod-id="${mod.id}" 
+                value="${mod.url || ''}" 
+                class="module-url-input w-full text-xs px-2.5 py-1.5 rounded-md border border-slate-300 focus:outline-none focus:ring-1 focus:ring-pjblue-600 font-mono"
+                placeholder="https://drive.google.com/..."
+              >
+            </div>
+          `;
+          settingsModulesList.appendChild(row);
+        });
+
+        settingsModal.classList.remove("hidden");
+      }
+
+      function closeSettings() {
+        settingsModal.classList.add("hidden");
+      }
+
+      function showToast(msg) {
+        const toast = document.getElementById("toastNotification");
+        const toastMsg = document.getElementById("toastMessage");
+        toastMsg.textContent = msg;
+        toast.classList.remove("translate-y-20", "opacity-0");
+        setTimeout(() => {
+          toast.classList.add("translate-y-20", "opacity-0");
+        }, 3000);
+      }
+
+      closeSettingsBtn.addEventListener("click", closeSettings);
+      btnCancelSettings.addEventListener("click", closeSettings);
+
+      btnSaveSettings.addEventListener("click", () => {
+        // Read values
+        const mainFolder = settingMainFolder.value.trim();
+        if (mainFolder) currentConfig.mainDriveFolder = mainFolder;
+
+        const newPass = settingAdminPassword.value.trim();
+        if (newPass) currentConfig.adminPassword = newPass;
+
+        const inputs = document.querySelectorAll(".module-url-input");
+        inputs.forEach(inp => {
+          const modId = inp.getAttribute("data-mod-id");
+          const mod = currentConfig.modules.find(m => m.id === modId);
+          if (mod) {
+            mod.url = inp.value.trim() || currentConfig.mainDriveFolder;
+          }
+        });
+
+        saveConfig(currentConfig);
+        closeSettings();
+        updateMainLinks();
+        renderModules(moduleSearchInput.value);
+        showToast("Pautan berjaya dikemaskini dan disimpan!");
+      });
+
+      btnResetSettings.addEventListener("click", () => {
+        if (confirm("Adakah anda pasti untuk menetapkan semula semua pautan kepada pautan asal?")) {
+          resetConfig();
+          currentConfig = JSON.parse(JSON.stringify(DEFAULT_PORTAL_CONFIG));
+          closeSettings();
+          updateMainLinks();
+          renderModules();
+          showToast("Semua pautan telah ditetapkan semula ke asal.");
+        }
+      });
+
+      // Close modal on click backdrop
+      settingsModal.addEventListener("click", (e) => {
+        if (e.target === settingsModal) closeSettings();
+      });
+
+      // Initialize Everything
+      updateMainLinks();
+      renderModules();
+      renderQuickLinks();
+      renderCalendarGrid();
+      renderCalendarEvents();
+    });
+  </script>
+</body>
+</html>
