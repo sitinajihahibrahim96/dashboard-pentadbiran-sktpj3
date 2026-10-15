@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canva Embed Widget | MyPENTADBIRAN SKTPJ3</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .gold-ribbon {
+      background: linear-gradient(180deg, #FBE38E 0%, #E5A817 50%, #B87E00 100%);
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 p-2 sm:p-4 m-0 overflow-x-hidden">
+  
+  <!-- Canva Mini Header -->
+  <div class="bg-gradient-to-r from-blue-950 via-blue-900 to-indigo-900 rounded-2xl p-4 mb-4 text-white text-center shadow-lg border-b-4 border-yellow-400">
+    <div class="flex items-center justify-center gap-3 mb-1">
+      <img src="assets/school_logo.png" alt="SKTPJ3" class="w-10 h-10 object-contain bg-white rounded-full p-0.5 shadow">
+      <div class="text-left">
+        <h2 class="text-xs uppercase font-extrabold text-yellow-300 tracking-wider">SK TAMAN PERMAS JAYA 3</h2>
+        <h1 class="text-xl font-black tracking-tight uppercase">MyPENTADBIRAN</h1>
+      </div>
+    </div>
+    <p class="text-xs text-blue-200 italic mt-0.5">“Kerja Sepasukan Pacu Kecemerlangan”</p>
+  </div>
+
+  <!-- 12 Cards Grid for Canva -->
+  <div id="embedGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+    <!-- Populated from config.js -->
+  </div>
+
+  <div class="mt-4 text-center">
+    <a 
+      id="mainDriveEmbedBtn" 
+      href="https://drive.google.com/drive/folders/1S-1saTXKEbZi4m6J8G_JRjVXAKObXPcv?usp=sharing" 
+      target="_blank"
+      class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-blue-900 hover:bg-blue-800 text-yellow-300 font-bold text-xs shadow-md transition"
+    >
+      <i class="fa-brands fa-google-drive text-sm"></i>
+      <span>Buka Folder Penuh Google Drive Pentadbiran</span>
+      <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+    </a>
+  </div>
+
+  <script src="config.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const config = getSavedConfig();
+      const grid = document.getElementById("embedGrid");
+      const mainBtn = document.getElementById("mainDriveEmbedBtn");
+
+      if (mainBtn && config.mainDriveFolder) {
+        mainBtn.href = config.mainDriveFolder;
+      }
+
+      config.modules.forEach(mod => {
+        const card = document.createElement("a");
+        card.href = mod.url || config.mainDriveFolder;
+        card.target = "_blank";
+        card.className = "bg-white rounded-xl p-3 shadow-sm border border-slate-200 hover:shadow-md hover:border-blue-400 transition flex flex-col justify-between group";
+        
+        card.innerHTML = `
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-[10px] font-black text-white px-2 py-0.5 rounded-full ${mod.badgeClass}">
+              ${mod.id}
+            </span>
+            <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-300 group-hover:text-blue-600 transition"></i>
+          </div>
+          <div class="w-full h-20 bg-slate-50 rounded-lg p-1.5 mb-2 flex items-center justify-center">
+            <img src="${mod.icon}" alt="${mod.title}" class="max-h-full max-w-full object-contain group-hover:scale-105 transition" onerror="this.src='assets/school_logo.png'">
+          </div>
+          <h3 class="text-xs font-extrabold text-slate-800 group-hover:text-blue-700 leading-tight line-clamp-2">
+            ${mod.title}
+          </h3>
+        `;
+        grid.appendChild(card);
+      });
+    });
+  </script>
+</body>
+</html>
