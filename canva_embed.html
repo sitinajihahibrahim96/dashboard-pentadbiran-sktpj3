@@ -58,25 +58,60 @@
       }
 
       config.modules.forEach(mod => {
-        const card = document.createElement("a");
-        card.href = mod.url || config.mainDriveFolder;
-        card.target = "_blank";
-        card.className = "bg-white rounded-xl p-3 shadow-sm border border-slate-200 hover:shadow-md hover:border-blue-400 transition flex flex-col justify-between group";
+        const card = document.createElement("div");
+        card.className = "bg-white rounded-xl p-3 shadow-sm border border-slate-200 hover:shadow-md hover:border-blue-400 transition flex flex-col justify-between group cursor-pointer";
         
+        let subBadges = "";
+        if (mod.subLinks && mod.subLinks.length > 0) {
+          subBadges = `
+            <div class="mt-2 pt-1.5 border-t border-slate-100 flex flex-wrap gap-1" onclick="event.stopPropagation()">
+              ${mod.subLinks.map(sl => `
+                <a 
+                  href="${sl.url}" 
+                  target="_blank" 
+                  class="inline-flex items-center gap-1 px-1.5 py-0.5 rounded text-[9px] font-bold bg-slate-100 hover:bg-blue-900 hover:text-yellow-300 text-slate-700 transition border border-slate-200"
+                  title="${sl.label} (${sl.platform})"
+                >
+                  <i class="${sl.icon} text-[8px]"></i>
+                  <span>${sl.year}</span>
+                </a>
+              `).join("")}
+            </div>
+          `;
+        } else if (mod.tags && mod.tags.length > 0) {
+          subBadges = `
+            <div class="mt-2 flex flex-wrap gap-1">
+              ${mod.tags.map(t => `
+                <span class="inline-flex items-center px-1.5 py-0.5 rounded text-[8px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                  #${t}
+                </span>
+              `).join("")}
+            </div>
+          `;
+        }
+
         card.innerHTML = `
-          <div class="flex items-center justify-between mb-2">
-            <span class="text-[10px] font-black text-white px-2 py-0.5 rounded-full ${mod.badgeClass}">
-              ${mod.id}
-            </span>
-            <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-300 group-hover:text-blue-600 transition"></i>
+          <div>
+            <div class="flex items-center justify-between mb-2">
+              <span class="text-[10px] font-black text-white px-2 py-0.5 rounded-full ${mod.badgeClass}">
+                ${mod.id}
+              </span>
+              <i class="fa-solid fa-arrow-up-right-from-square text-[10px] text-slate-300 group-hover:text-blue-600 transition"></i>
+            </div>
+            <div class="w-full h-16 sm:h-20 bg-slate-50 rounded-lg p-1.5 mb-2 flex items-center justify-center">
+              <img src="${mod.icon}" alt="${mod.title}" class="max-h-full max-w-full object-contain group-hover:scale-105 transition" onerror="this.src='assets/school_logo.png'">
+            </div>
+            <h3 class="text-xs font-extrabold text-slate-800 group-hover:text-blue-700 leading-tight line-clamp-2">
+              ${mod.title}
+            </h3>
           </div>
-          <div class="w-full h-20 bg-slate-50 rounded-lg p-1.5 mb-2 flex items-center justify-center">
-            <img src="${mod.icon}" alt="${mod.title}" class="max-h-full max-w-full object-contain group-hover:scale-105 transition" onerror="this.src='assets/school_logo.png'">
-          </div>
-          <h3 class="text-xs font-extrabold text-slate-800 group-hover:text-blue-700 leading-tight line-clamp-2">
-            ${mod.title}
-          </h3>
+          ${subBadges}
         `;
+
+        card.addEventListener("click", () => {
+          window.open(mod.url || config.mainDriveFolder, "_blank");
+        });
+
         grid.appendChild(card);
       });
     });
