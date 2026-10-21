@@ -48,25 +48,25 @@ Jika anda ingin meletakkan elemen satu persatu di dalam Canva Canvas:
 
 ---
 
-### 🔗 Pemetaan Pautan Google Drive Rasmi
+### 🔗 Pemetaan Pautan Rasmi Modul MyPENTADBIRAN
 
 Folder Induk Google Drive:
 👉 [DASHBOARD PENTADBIRAN (Folder Penuh)](https://drive.google.com/drive/folders/1S-1saTXKEbZi4m6J8G_JRjVXAKObXPcv?usp=sharing)
 
-| No. | Modul | Fail Sasaran di Google Drive | Pautan Langsung |
+| No. | Modul | Kategori / Tahun | Pautan Langsung |
 | :---: | :--- | :--- | :--- |
-| **01** | JAWATANKUASA & ORGANISASI | Surat Lantikan Pentadbiran 2026 | [Buka Fail](https://drive.google.com/file/d/1y5M2LL9kZRtVOamElYj02GRENIkkg2cD/view?usp=sharing) |
-| **02** | BUKU PENGURUSAN SEKOLAH | Gabung Buku Pengurusan SKTPJ3 2026 | [Buka Fail](https://drive.google.com/file/d/1pKg41zhfS5M7iR33sVI5qFlGNxKeZ_mv/view?usp=sharing) |
-| **03** | HALA TUJU SEKOLAH | Slaid / Infografik Hala Tuju | [Buka Fail](https://drive.google.com/file/d/1Siz-rV5l5xhyUQDMBll1RHU6V2vIwsIk/view?usp=sharing) |
-| **04** | PERANCANGAN STRATEGIK | _RPS 2026.pdf | [Buka Fail](https://drive.google.com/file/d/1XfCJvubsnQsyl4DVNIyq_NESQPTiwXCr/view?usp=sharing) |
-| **05** | MINIT MESYUARAT | Minit Mesyuarat Pentadbiran Bil 1 | [Buka Fail](https://drive.google.com/file/d/1SIegvXZ91zrQCDkoO0P2samNXZOd6QVU/view?usp=sharing) |
-| **06** | TAKWIM & JADUAL | Aktiviti & Program Bulanan 2026 | [Buka Fail](https://drive.google.com/file/d/1qruPhKxFOhcpBVjwq9CdKfdSq75iiAw-/view?usp=sharing) |
-| **07** | SURAT & PEKELILING | Surat Panggilan Mesyuarat 2026 | [Buka Fail](https://drive.google.com/file/d/1dEXtBaudupI-mNzhxNxwbdfxKs4NUxrw/view?usp=sharing) |
-| **08** | PEMANTAUAN & PENILAIAN | Folder Induk Pemantauan | [Buka Folder](https://drive.google.com/drive/folders/1S-1saTXKEbZi4m6J8G_JRjVXAKObXPcv?usp=sharing) |
-| **09** | DATA & ANALISIS | Profil & Analisis Sekolah | [Buka Fail](https://drive.google.com/file/d/1cT5SAO3gVo7YHGOMM1JzwSQ02XO2orx4/view?usp=sharing) |
-| **10** | PROGRAM & TINDAKAN | Laporan & Kertas Kerja Aktiviti | [Buka Fail](https://drive.google.com/file/d/1jnhu_HGSfWy4vEnflgPLsJ1bn3cIGJN5/view?usp=sharing) |
-| **11** | PENGURUSAN FAIL & DOKUMENTASI | Indeks & Templat Fail | [Buka Folder](https://drive.google.com/drive/folders/1S-1saTXKEbZi4m6J8G_JRjVXAKObXPcv?usp=sharing) |
-| **12** | ARKIB & AMALAN BAIK | Amalan Baik SKTPJ3 | [Buka Fail](https://drive.google.com/file/d/1dCuZ8_0BLRm-ts2F8MTH3eHUOMoO_XlV/view?usp=sharing) |
+| **01** | JAWATANKUASA & ORGANISASI | Folder Rasmi | [Buka Folder Drive](https://drive.google.com/drive/folders/1Kn252cuWJPUSbvdRjazFUkg4j72uP7zz?usp=drive_link) |
+| **02** | BUKU PENGURUSAN SEKOLAH | Folder Rasmi | [Buka Folder Drive](https://drive.google.com/drive/folders/1PE0pLRxQ1Ye2BvmFHDT-xPSsrChQs_nx?usp=drive_link) |
+| **03** | HALA TUJU SEKOLAH | Dokumen Hala Tuju | [Buka Dokumen](https://drive.google.com/file/d/1Siz-rV5l5xhyUQDMBll1RHU6V2vIwsIk/view?usp=sharing) |
+| **04** | PERANCANGAN STRATEGIK | • Tahun 2024/2025 (Google Drive)<br>• Tahun 2025/2026 (Canva)<br>• Tahun 2026 (Canva) | • [Drive 2024/2025](https://drive.google.com/drive/folders/1zY000Jc8s8YGniSvmw-7z57qrpNix_C5?usp=drive_link)<br>• [Canva 2025/2026](https://canva.link/2erkbd6ds9j2o5s)<br>• [Canva 2026](https://canva.link/a0tg4nhpv0oiizz) |
+| **05** | MINIT MESYUARAT | Folder Rasmi | [Buka Folder Drive](https://drive.google.com/drive/folders/1c0f4eCMMx1BS9kII1NGOLmVahdgqesRO?usp=drive_link) |
+| **06** | TAKWIM & JADUAL | Folder Rasmi | [Buka Folder Drive](https://drive.google.com/drive/folders/1P1rWS6theQeDEOKvKOSKQstvTwZknSy3?usp=drive_link) |
+| **07** | SURAT & PEKELILING | Folder Rasmi | [Buka Folder Drive](https://drive.google.com/drive/folders/11nR-NBncYV8g4RQNA-uDI4xwIFuSOGx0?usp=drive_link) |
+| **08** | PEMANTAUAN & PENILAIAN | Folder Rasmi | [Buka Folder Drive](https://drive.google.com/drive/folders/1S-1saTXKEbZi4m6J8G_JRjVXAKObXPcv?usp=sharing) |
+| **09** | DATA & ANALISIS | Analisis & Data Sekolah | [Buka Dokumen](https://drive.google.com/file/d/1cT5SAO3gVo7YHGOMM1JzwSQ02XO2orx4/view?usp=sharing) |
+| **10** | PROGRAM & TINDAKAN | Folder Rasmi | [Buka Folder Drive](https://drive.google.com/drive/folders/1FllwdE5SelZNQ9nu0z1iRixWGKP6-8B-?usp=drive_link) |
+| **11** | PENGURUSAN FAIL & DOKUMENTASI | Folder Rasmi (OPR & Storyboard) | [Buka Folder Drive](https://drive.google.com/drive/folders/1f4NsGEt5MFGN7Ub06P3CYp8vBul6y3OT?usp=drive_link) |
+| **12** | ARKIB & AMALAN BAIK | Folder Rasmi | [Buka Folder Drive](https://drive.google.com/drive/folders/1XY3bkD0cbO-KSsHiufC_3VuW2CnXuNyf?usp=drive_link) |
 
 ---
 
