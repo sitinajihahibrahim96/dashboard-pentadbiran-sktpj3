@@ -719,13 +719,40 @@
                 <p class="text-xs text-slate-500 mt-1 leading-relaxed line-clamp-2">
                   ${mod.desc}
                 </p>
+
+                ${mod.tags && mod.tags.length > 0 ? `
+                  <div class="mt-2 flex flex-wrap gap-1">
+                    ${mod.tags.map(t => `
+                      <span class="inline-flex items-center px-2 py-0.5 rounded-md text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                        <i class="fa-solid fa-tag text-[8px] mr-1"></i>${t}
+                      </span>
+                    `).join('')}
+                  </div>
+                ` : ''}
+
+                ${mod.subLinks && mod.subLinks.length > 0 ? `
+                  <div class="mt-2.5 pt-2 border-t border-slate-100 flex flex-wrap gap-1.5" onclick="event.stopPropagation()">
+                    ${mod.subLinks.map(sl => `
+                      <a 
+                        href="${sl.url}" 
+                        target="_blank" 
+                        class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-bold bg-slate-50 hover:bg-pjblue-900 hover:text-pjgold-300 text-slate-700 transition shadow-xs border border-slate-200"
+                        title="${sl.label} (${sl.platform})"
+                      >
+                        <i class="${sl.icon} text-xs"></i>
+                        <span>${sl.year}</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-[8px] opacity-60"></i>
+                      </a>
+                    `).join('')}
+                  </div>
+                ` : ''}
               </div>
 
               <!-- Action Link / Button -->
               <div class="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-pjblue-700 group-hover:text-pjblue-900">
                 <span class="flex items-center gap-1.5">
-                  <i class="fa-brands fa-google-drive text-amber-500 text-sm"></i>
-                  <span>Buka Dokumen</span>
+                  <i class="${mod.url && mod.url.includes('canva.link') ? 'fa-solid fa-palette text-cyan-600' : 'fa-brands fa-google-drive text-amber-500'} text-sm"></i>
+                  <span>${mod.url && mod.url.includes('canva.link') ? 'Buka di Canva' : 'Buka Dokumen'}</span>
                 </span>
                 <span class="w-7 h-7 rounded-full bg-slate-100 group-hover:bg-pjblue-900 group-hover:text-pjgold-400 flex items-center justify-center transition shadow-sm text-slate-600">
                   <i class="fa-solid fa-arrow-right text-[11px] transform group-hover:translate-x-0.5 transition"></i>
@@ -1119,25 +1146,53 @@
 
         currentConfig.modules.forEach((mod, idx) => {
           const row = document.createElement("div");
-          row.className = "p-2.5 bg-slate-50 rounded-xl border border-slate-200 flex flex-col sm:flex-row sm:items-center gap-2";
+          row.className = "p-2.5 bg-slate-50 rounded-xl border border-slate-200 flex flex-col gap-2";
+
+          let subLinksHtml = "";
+          if (mod.subLinks && mod.subLinks.length > 0) {
+            subLinksHtml = `
+              <div class="pl-3 sm:pl-4 border-l-2 border-pjblue-200 mt-1 space-y-1.5 bg-white/60 p-2 rounded-md">
+                <span class="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">Pautan Mengikut Tahun:</span>
+                ${mod.subLinks.map((sl, sIdx) => `
+                  <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+                    <span class="w-28 text-[11px] font-bold text-slate-700 shrink-0 flex items-center gap-1">
+                      <i class="${sl.icon}"></i> ${sl.year}:
+                    </span>
+                    <input 
+                      type="url" 
+                      data-sublink-mod-id="${mod.id}"
+                      data-sublink-idx="${sIdx}"
+                      value="${sl.url || ''}" 
+                      class="module-sublink-input w-full text-[11px] px-2.5 py-1 rounded border border-slate-300 focus:outline-none focus:ring-1 focus:ring-pjblue-600 font-mono"
+                      placeholder="https://..."
+                    >
+                  </div>
+                `).join("")}
+              </div>
+            `;
+          }
+
           row.innerHTML = `
-            <div class="sm:w-1/3 flex items-center gap-2">
-              <span class="px-2 py-0.5 rounded text-[10px] font-bold text-white ${mod.badgeClass}">
-                ${mod.id}
-              </span>
-              <span class="text-xs font-bold text-slate-800 truncate" title="${mod.title}">
-                ${mod.title}
-              </span>
+            <div class="flex flex-col sm:flex-row sm:items-center gap-2">
+              <div class="sm:w-1/3 flex items-center gap-2">
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold text-white ${mod.badgeClass}">
+                  ${mod.id}
+                </span>
+                <span class="text-xs font-bold text-slate-800 truncate" title="${mod.title}">
+                  ${mod.title}
+                </span>
+              </div>
+              <div class="sm:w-2/3">
+                <input 
+                  type="url" 
+                  data-mod-id="${mod.id}" 
+                  value="${mod.url || ''}" 
+                  class="module-url-input w-full text-xs px-2.5 py-1.5 rounded-md border border-slate-300 focus:outline-none focus:ring-1 focus:ring-pjblue-600 font-mono"
+                  placeholder="https://drive.google.com/..."
+                >
+              </div>
             </div>
-            <div class="sm:w-2/3">
-              <input 
-                type="url" 
-                data-mod-id="${mod.id}" 
-                value="${mod.url || ''}" 
-                class="module-url-input w-full text-xs px-2.5 py-1.5 rounded-md border border-slate-300 focus:outline-none focus:ring-1 focus:ring-pjblue-600 font-mono"
-                placeholder="https://drive.google.com/..."
-              >
-            </div>
+            ${subLinksHtml}
           `;
           settingsModulesList.appendChild(row);
         });
@@ -1176,6 +1231,16 @@
           const mod = currentConfig.modules.find(m => m.id === modId);
           if (mod) {
             mod.url = inp.value.trim() || currentConfig.mainDriveFolder;
+          }
+        });
+
+        const subInputs = document.querySelectorAll(".module-sublink-input");
+        subInputs.forEach(sinp => {
+          const modId = sinp.getAttribute("data-sublink-mod-id");
+          const sIdx = parseInt(sinp.getAttribute("data-sublink-idx"), 10);
+          const mod = currentConfig.modules.find(m => m.id === modId);
+          if (mod && mod.subLinks && mod.subLinks[sIdx]) {
+            mod.subLinks[sIdx].url = sinp.value.trim() || mod.url;
           }
         });
 
